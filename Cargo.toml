@@ -1,0 +1,12 @@
+[package]
+name = "blade-egui"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+blade = "0.3.0"
+blade-egui = "0.6.0"
+blade-graphics = "0.6.0"
+egui = "0.29.0"
+egui-winit = "0.29.0"
+winit = "0.30.12"
