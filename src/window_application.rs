@@ -1,8 +1,11 @@
 use winit::event;
 
+use crate::render_engine::RenderEngine;
+
 #[derive(Default)]
 pub struct WindowApplication {
     pub window: Option<winit::window::Window>,
+    pub render_engine: Option<RenderEngine>,
 }
 
 impl winit::application::ApplicationHandler for WindowApplication {
@@ -17,7 +20,9 @@ impl winit::application::ApplicationHandler for WindowApplication {
             let window_attributes =
                 winit::window::Window::default_attributes().with_title("Test Window Application");
             let window = event_loop.create_window(window_attributes).unwrap();
-            self.window = Some(window)
+
+            self.render_engine = Some(RenderEngine::new(&window));
+            self.window = Some(window);
         }
     }
 
